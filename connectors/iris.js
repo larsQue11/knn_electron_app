@@ -1,20 +1,30 @@
-function sendToPython() {
+function sendToPython(query) {
 
     // Use python shell
     let {PythonShell} = require('python-shell');
 
+    console.log("Results in: " + query)
+    
     var options = {
         mode: 'text',
-        // pythonPath: '../venv/bin/python',
         pythonPath: './venv/bin/python',
-        // args: ['sepal_length','sepal_width','petal_length','petal_width']
-        args: [sepal_length,sepal_width,petal_length,petal_width]
+        args : query
     }
 
     PythonShell.run('./backend/knn_iris.py',options,function(err,results) {
         if (err) throw err;
         console.log(results)
+        console.log(typeof results)
         //Do things with the returned results from knn_iris.py here:
+        var tableRef = document.getElementById("table").getElementsByTagName("tbody")[0]
+        var newRow = tableRef.insertRow(tableRef.rows.length)
+        var i = 0
+        for (x of results){
+            var newCell = newRow.insertCell(i)
+            var newText = document.createTextNode(x)
+            newCell.appendChild(newText)
+            i = i + 1
+        }
     })
 }
 
@@ -39,10 +49,11 @@ function get_data() {
         var petal_width = document.getElementById("petal_width").value
     } else { var petal_width = -1 }
 
-    var results = [sepal_length, sepal_width, petal_length, petal_width]
-    console.log("Retrieved data from HTML: " + results)
+    var k = document.getElementById("k_value").value
+    var query = [k,sepal_length, sepal_width, petal_length, petal_width]
+    console.log("Retrieved data from HTML: " + query)
 
-    sendToPython()
+    sendToPython(query)
 }
 
 function clear_data() {
@@ -52,4 +63,9 @@ function clear_data() {
     document.getElementById("sepal_width").value = ""
     document.getElementById("petal_length").value = ""
     document.getElementById("petal_width").value = ""
+    var tb = document.getElementById("table")
+    for(var i = tb.rows.length - 1; i > 0; i--) {
+        tb.deleteRow(i)
+    }
+
 }

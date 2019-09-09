@@ -11,18 +11,31 @@
         <div class="tabs is-centered">
             <ul>
               <li class="is-active"><a>About</a></li>
-              <li><a href="./knn_iris.html">Iris Dataset</a></li>
-              <li><a>Dealer's Choice</a></li>
+              <li><a href="./knn_iris.html">Iris Classification</a></li>
+              <li><a href="./knn_wine.html">White Wine Quality</a></li>
             </ul>
         </div>
 
         <div class="container is-widescreen">
-            <div class="box has-text-centered" style="margin-left: 20px; margin-right: 20px">
-                Author: William Stone<br>
-                Course: CS7267 Machine Learning<br>
-                Fall 2019<br>
-                Assignment 1<br><br>
-                Describe the algorithm
+            <div class="box" style="margin-left: 20px; margin-right: 20px">
+                <section class="has-text-centered">
+                    Author: William Stone<br>
+                    Course: CS7267 Machine Learning<br>
+                    Fall 2019<br>
+                    Assignment 1<br><br>
+                </section>
+                
+                The K-Nearest Neighbors (KNN) algorithm is a frequently-employed lazy learning texhnique
+                used in machine learning in both classification and regression applications. The algorithm works
+                by calculating the Euclidean distance between all data points in the model and the point of interest.
+                The algorithm then makes a decision based on which data the point is closest to. K is the number of 
+                neighbors the point is tested against (i.e. if K=3, then the point of interest is compared to its three 
+                closest neighbors). The point is "most-similar" to the data with the highest mode in those k neighbors.<br> 
+                In this application, the user defines the values for the point of interest. The inputs are then used 
+                to create a new object which is tested against the known dataset. The first dataset is the Iris classification 
+                set which uses four attributes to sort irises into 1 of 3 classes. The second is a dataset of white wines 
+                which determines the quality of the wine (0: very bad to 10: very excellent) based on 11 variables. The 
+                former employs a simple classification model, while the latter is employed as a regression model.
             </div>
         </div>
        

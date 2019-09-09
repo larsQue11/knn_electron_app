@@ -4,17 +4,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="bulma.css">
 <script src="../connectors/iris.js"></script>
-<!-- <script>require('../connectors/iris.js')</script> -->
 </head>
     <body style="background-color: #F5F5F5; margin: 0; padding: 0; min-height: 100vh; width: 100%;">
 
-        <h1 class="title has-text-centered">K-Nearest Neighbor</h1>
+        <h1 class="title is-1 has-text-centered" style="padding-top: 20px">K-Nearest Neighbor</h1>
 
         <div class="tabs is-centered">
             <ul>
-              <li><a href="./main.html">About</a></li>
-              <li class="is-active"><a>Iris Dataset</a></li>
-              <li><a>Dealer's Choice</a></li>
+                <li><a href="./main.html">About</a></li>
+                <li class="is-active"><a>Iris Dataset</a></li>
+                <li><a href="./knn_wine.html">White Wine Quality</a></li>
             </ul>
         </div>
 
@@ -44,30 +43,43 @@
                 </div>
 
                 <div class="contatiner has-text-centered">
+                    
                     <div class="select">
-                        <select>
-                            <option>K = 0</option>
-                            <option>K = 1</option>
-                            <option>K = 2</option>
-                            <option>K = 3</option>
-                            <option>K = 4</option>
-                            <option>K = 5</option>
-                            <option>K = 6</option>
-                            <option>K = 7</option>
-                            <option>K = 8</option>
-                            <option>K = 9</option>
-                            <option>K = 10</option>
-                            <option>K = 11</option>
-                            <option>K = 12</option>
-                            <option>K = 13</option>
-                            <option>K = 14</option>
-                            <option>K = 15</option>
+                        <select id="k_value">
+                            <option value="1">K = 1</option>
+                            <option value="2">K = 2</option>
+                            <option value="3">K = 3</option>
+                            <option value="4">K = 4</option>
+                            <option value="5">K = 5</option>
+                            <option value="6">K = 6</option>
+                            <option value="7">K = 7</option>
+                            <option value="8">K = 8</option>
+                            <option value="9">K = 9</option>
+                            <option value="10">K = 10</option>
+                            <option value="11">K = 11</option>
+                            <option value="12">K = 12</option>
+                            <option value="13">K = 13</option>
+                            <option value="14">K = 14</option>
+                            <option value="15">K = 15</option>
                         </select>
                     </div>
-
+                    
                     <input class="button" type="submit" onclick="get_data()" value="Submit input">
                     
-                    <input class="button" type="reset" onclick="clear_data()" value="Reset input">
+                    <input class="button" type="reset" onclick="clear_data()" value="Reset">
+                
+                    <table id="table" class="table" style="margin-top: 20px; margin-left: auto; margin-right: auto">
+                        <thead>
+                                <th>K</th>
+                                <th>Prediction</th>
+                                <th>Accuracy</th>
+                                <th>Precision(SE)</th>
+                                <th>Precision(VE)</th>
+                                <th>Precision(VI)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
                 </div>
 
             </div>
