@@ -30,10 +30,9 @@ function sendToPython(query) {
 
 function get_data() {
 
-    const status = "get_data/iris.js called"
-    console.log(status)
+    console.log("get_data/iris.js called")
 
-    if (sepal_length = document.getElementById("sepal_length").value.length > 0) {
+    if (document.getElementById("sepal_length").value.length > 0) {
         var sepal_length = document.getElementById("sepal_length").value
     } else { var sepal_length = -1 }
     
@@ -63,9 +62,9 @@ function clear_data() {
     document.getElementById("sepal_width").value = ""
     document.getElementById("petal_length").value = ""
     document.getElementById("petal_width").value = ""
+    
     var tb = document.getElementById("table")
     for(var i = tb.rows.length - 1; i > 0; i--) {
         tb.deleteRow(i)
     }
-
 }

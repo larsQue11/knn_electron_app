@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="bulma.css">
-<script src="../connectors/iris.js"></script>
+<script src="../connectors/wine.js"></script>
 </head>
     <body style="background-color: #F5F5F5; margin: 0; padding: 0; min-height: 100vh; width: 100%;">
 
@@ -12,8 +12,8 @@
         <div class="tabs is-centered">
             <ul>
                 <li><a href="./main.html">About</a></li>
-                <li class="is-active"><a>Iris Dataset</a></li>
-                <li><a href="./knn_wine.html">White Wine Quality</a></li>
+                <li><a href="./knn_iris.html">Iris Classification</a></li>
+                <li class="is-active"><a>White Wine Quality</a></li>
             </ul>
         </div>
 
@@ -21,27 +21,52 @@
             <div class="box is-centered" style="margin-left: 20px; margin-right: 20px">
 
                 <div class="columns">
-                    <div class="column is-one-quarter"></div>
-                    <div class="column is-one-quarter">
-                        <input id="sepal_length" class="input" type="text" placeholder="Sepal Length">
+                    <div class="column is-one-third">
+                        <input id="fixed_acidity" class="input" type="text" placeholder="Fixed Acidity">
                     </div>
-                    <div class="column is-one-quarter">
-                        <input id="sepal_width" class="input" type="text" placeholder="Sepal Width">
+                    <div class="column is-one-third">
+                        <input id="volatile_acidity" class="input" type="text" placeholder="Volatile Acidity">
                     </div>
-                    <div class="column is-one-quarter"></div>
-                </div>
-                
-                <div class="columns">
-                    <div class="column is-one-quarter"></div>
-                    <div class="column is-one-quarter">
-                        <input id="petal_length" class="input" type="text" placeholder="Petal Length">
+                    <div class="column is-one-third">
+                        <input id="citric_acid" class="input" type="text" placeholder="Citric Acid">
                     </div>
-                    <div class="column is-one-quarter">
-                        <input id="petal_width" class="input" type="text" placeholder="Petal Length">
-                    </div>
-                    <div class="column is-one-quarter"></div>
                 </div>
 
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <input id="residual_sugar" class="input" type="text" placeholder="Residual Sugar">
+                    </div>
+                    <div class="column is-one-third">
+                        <input id="chlorides" class="input" type="text" placeholder="Chlorides">
+                    </div>
+                    <div class="column is-one-third">
+                        <input id="free_sulfur_dioxides" class="input" type="text" placeholder="Free Sulfur Dioxide">
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column is-one-third">
+                        <input id="total_sulfur_dioxides" class="input" type="text" placeholder="Total Sulfur Dioxide">
+                    </div>
+                    <div class="column is-one-third">
+                        <input id="density" class="input" type="text" placeholder="Density">
+                    </div>
+                    <div class="column is-one-third">
+                        <input id="pH" class="input" type="text" placeholder="pH">
+                    </div>
+                </div>
+                    
+                <div class="columns is-centered">
+                    <div class="column is-one-fifth"></div>
+                    <div class="column is-two-fifths">
+                        <input id="sulphates" class="input" type="text" placeholder="Sulphates">
+                    </div>
+                    <div class="column is-two-fifths">
+                        <input id="alcohol" class="input" type="text" placeholder="Alcohol">
+                    </div>
+                    <div class="column is-one-fifth"></div>
+                </div>
+                
                 <div class="contatiner has-text-centered">
                     
                     <div class="select">
@@ -73,10 +98,9 @@
                             <tr>
                                 <th>K</th>
                                 <th>Prediction</th>
-                                <th>Accuracy</th>
-                                <th>Precision(SE)</th>
-                                <th>Precision(VE)</th>
-                                <th>Precision(VI)</th>
+                                <th>Mean Square Error</th>
+                                <th>Root MSE</th>
+                                <th>Mean Absolute Error</th>
                             </tr>
                         </thead>
                         <tbody id="tbody"></tbody>
